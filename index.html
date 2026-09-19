@@ -770,7 +770,7 @@
             stage.addEventListener('click', handlePhotoTap);
         }
 
-        function createPhotoFrame(stage, index) {
+                function createPhotoFrame(stage, index) {
             const frame = document.createElement('div');
             frame.classList.add('photo-frame');
             frame.id = 'current-photo';
@@ -778,6 +778,11 @@
             const img = document.createElement('img');
             img.src = photoData[index].src;
             img.alt = '';
+
+            // If it is Photo 2 (the collage), fit all 4 photos without cropping
+            if (index === 1) {
+                img.style.objectFit = 'contain';
+            }
 
             const num = document.createElement('span');
             num.classList.add('photo-num');
